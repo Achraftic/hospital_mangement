@@ -1,6 +1,6 @@
 # Rapport Projet TP3 Spring MVC
 ### Réalisé par : Tichirra Achraf 
-### université moulay ismail FSM Master Sdia
+### Université moulay ismail FSM Master Sdia
 
 ## Sommaire
 
@@ -285,10 +285,11 @@ public class PatientController {
 ### Sécurisation par rôle ADMIN
 
 ```java
-@PreAuthorize("hasRole('ADMIN')")
 @GetMapping("/admin/delete")
+@PreAuthorize("hasRole('ADMIN')")
 public String delete(Long id, String keyword, int page) {
-    
+    patientRepository.deleteById(id);
+    return "redirect:/home?page="+page+"&keyword="+keyword;
 }
 ```
 
@@ -419,9 +420,9 @@ spring.mvc.format.date=dd/MM/yyyy
 
 ### Page Liste des patients (Admin)
 
-![Page d'accueil](screenshots/Screenshot 2025-05-18 at 22-43-02 Title.png)
+![Page d'accueil](screenshots/liste_patient1.png)
 ---
-![Page d'accueil](screenshots/Screenshot 2025-05-18 at 22-44-01 Title.png)
+![Page d'accueil](screenshots/liste_patient2.png)
 
 ### Page Edit et Ajouter Patient (Admin)
 
