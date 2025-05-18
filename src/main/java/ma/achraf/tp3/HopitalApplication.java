@@ -29,10 +29,8 @@ public class HopitalApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
        // patientRepository.save(new Patient(null, "Achraf","Tichirra", new Date(), false,93));
-        //patientRepository.save(new Patient(null, "leo","messi", new Date(), true,100));
 
 
-        // en utilisant Builder
         Patient patient=Patient.builder()
                 .nom("Achrf")
                 .prenom("Tichira")

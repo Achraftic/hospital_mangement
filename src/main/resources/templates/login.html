@@ -2,35 +2,86 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Authentication</title>
+    <title>Login | Secure Access</title>
     <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css">
+    <style>
+        body {
+
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .login-card .card-header {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #6a11cb;
+            border-color: #6a11cb;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #5019b2;
+            border-color: #5019b2;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-<div class="row mt-3">
-    <div class="col-md-6 offset-3">
-        <div class="card">
-            <div class="card-header">Authentication</div>
-            <div class="card-body">
-                <form method="post" th:action="@{/login}">
-                    <div class="mb-3 mt-3">
-                        <label for="username" class="form-label">Username: </label>
-                        <input class="form-control" id="username" placeholder="Username" type="text" name="username">
-                    </div>
-                    <div class="mb-3 mt-3">
-                        <label for="password" class="form-label">Password: </label>
-                        <input class="form-control" id="password" placeholder="password" type="password" name="password" >
-                    </div>
-                    <div class="form-check mb-3">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember-me"> Remember me
-                        </label>
-                    </div>
-
-                    <button class="btn btn-primary" type="submit" >Login</button>
-                </form>
+<div class="login-card">
+    <div class="card-header">
+        <i class="bi bi-shield-lock-fill me-2"></i>Secure Login
+    </div>
+    <div class="card-body">
+        <form method="post" th:action="@{/login}">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input class="form-control" id="username" placeholder="Enter your username" type="text" name="username">
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input class="form-control" id="password" placeholder="Enter your password" type="password" name="password">
+            </div>
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" name="remember-me" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                    Remember me
+                </label>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+            </button>
+        </form>
     </div>
 </div>
 </body>
