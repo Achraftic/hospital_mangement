@@ -1,6 +1,8 @@
-# 🏥 Gestion des Patients - Projet Spring MVC
+# Rapport Projet TP3 Spring MVC
+### Réalisé par : Tichirra Achraf 
+### université moulay ismail FSM Master Sdia
 
-## 📋 Sommaire
+## Sommaire
 
 * [Introduction](#introduction)
 * [Technologies utilisées](#technologies-utilisées)
@@ -16,13 +18,13 @@
 
 ---
 
-## 🎯 Introduction
+## Introduction
 
 Ce projet est une application web de gestion des patients réalisée avec Spring Boot et Spring MVC. Elle permet d’ajouter, modifier, rechercher, et supprimer des patients. L’accès aux fonctionnalités est restreint via des rôles (USER, ADMIN).
 
 ---
 
-## 🛠️ Technologies utilisées
+##  Technologies utilisées
 
 * Spring Boot
 * Spring MVC
@@ -35,7 +37,7 @@ Ce projet est une application web de gestion des patients réalisée avec Spring
 
 ---
 
-## 🗂️ Architecture du projet
+##  Architecture du projet
 
 ```
 ma.achraf.tp3
@@ -63,9 +65,9 @@ ma.achraf.tp3
 
 ---
 
-## 🧬 Modèle de données
+## Modèle de données
 
-### ✅ Patient.java
+### Patient.java
 
 ```java
 @Entity
@@ -100,9 +102,9 @@ public class Patient {
 
 ---
 
-## 🔐 Gestion des utilisateurs et rôles (Spring Security)
+## Gestion des utilisateurs et rôles (Spring Security)
 
-### ✅ AppUser.java et AppRole.java
+### AppUser.java et AppRole.java
 
 ```java
 @Entity
@@ -127,7 +129,7 @@ public class AppRole {
 }
 ```
 
-### ✅ Service AccountService
+### Service AccountService
 
 Fonctions :
 
@@ -137,7 +139,7 @@ Fonctions :
 * Supprimer un rôle
 
 ---
-### ✅ Service AccountService Implementation
+### Service AccountService Implementation
 ```java
 @Service
 @Transactional
@@ -200,9 +202,9 @@ public class AccountServiceImpl implements AccountService {
 
 ```
 
-## 🎮 Contrôleur PatientController
+## Contrôleur PatientController
 
-### ✅ Recherche et pagination
+### Recherche et pagination
 
 ```java
 @Controller
@@ -280,7 +282,7 @@ public class PatientController {
 
 ```
 
-### ✅ Sécurisation par rôle ADMIN
+### Sécurisation par rôle ADMIN
 
 ```java
 @PreAuthorize("hasRole('ADMIN')")
@@ -292,7 +294,7 @@ public String delete(Long id, String keyword, int page) {
 
 ---
 
-## 🔐 Sécurité avec Spring Security
+## Sécurité avec Spring Security
 
 ###  Configuration
 #### InMemomy Authentication
@@ -403,30 +405,41 @@ spring.mvc.format.date=dd/MM/yyyy
 
 ---
 
-## 📸 Screenshots de l'application
+## Screenshots de l'application
 
-> 📝 Ajoutez ici vos captures d’écran comme ceci :
+### Base de donnes
 
-### 📍 Page d'accueil
+![Page d'accueil](screenshots/db_tables.png)
+---
+![Page d'accueil](screenshots/patients_table.png)
 
-![Page d'accueil](chemin/vers/screenshot1.png)
+### Login Page
 
-### 📍 Formulaire de création de patient
+![Page d'accueil](screenshots/login.png)
 
-![Formulaire patient](chemin/vers/screenshot2.png)
+### Page Liste des patients (Admin)
 
-### 📍 Interface sécurisée (ADMIN)
+![Page d'accueil](screenshots/Screenshot 2025-05-18 at 22-43-02 Title.png)
+---
+![Page d'accueil](screenshots/Screenshot 2025-05-18 at 22-44-01 Title.png)
 
-![Interface admin](chemin/vers/screenshot3.png)
+### Page Edit et Ajouter Patient (Admin)
+
+![Page d'accueil](screenshots/ajoute_page.png)
+---
+![Page d'accueil](screenshots/modifier_page.png)
+
+
+### Page Liste des patients (User)
+
+![Page d'accueil](screenshots/img_1.png)
+### Si l'utilisateur souhaite accéder à la page d'ajout d'un patient.
+![Page d'accueil](screenshots/not_authorized.png)
+
+
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
-Ce projet est une bonne démonstration de l’architecture MVC avec Spring Boot, intégrant :
-
-* La gestion sécurisée des accès
-* La validation côté backend
-* L’utilisation de Spring Data JPA avec pagination
-* Un design responsive grâce à Bootstrap
-
+Ce projet Spring Boot permet de gérer des patients avec un système sécurisé d’authentification et d’autorisation. Il utilise JPA pour la gestion des données, la validation des champs, et Spring Security pour le contrôle des accès selon les rôles. Il offre une base solide pour développer des applications web sécurisées.
